@@ -8,7 +8,8 @@ url="https://github.com/ZmanSilver/silver-dwm"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'silver-st' 'dmenu' 'ttf-font-awesome')
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'dmenu' 'ttf-font-awesome')
+optdepends=('st: default terminal dwm uses')
 install=dwm.install
 source=(https://www.dropbox.com/s/5cu3zf60q27l05u/silver-dwm.tar.gz
 	config.h
