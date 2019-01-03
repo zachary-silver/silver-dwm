@@ -10,10 +10,10 @@ license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu' 'ttf-font-awesome')
 install=dwm.install
-source=(https://www.dropbox.com/s/o3c3o6e3m4grxoy/silver-dwm.tar.gz
+source=(https://www.dropbox.com/s/5cu3zf60q27l05u/silver-dwm.tar.gz
 	config.h
 	dwm.desktop)
-md5sums=('8d532b3c16da552cd392d7f919fa7ef3'
+md5sums=('3414b14b64557b2b7d786244e89425d1'
          'b2a40545589193ebb1c371169d10d42e'
          '7f873efd596b8b30e2cdc09583209874')
 
