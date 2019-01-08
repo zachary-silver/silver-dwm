@@ -1,8 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
+/* preferred monitor for status output */
+#define STATUSMONITOR	0
+
 /* appearance */
 static const char *fonts[] = {
-	"mono:size=14"
+	"mono:size=12"
 };
 static const char dmenufont[]       = "mono:size=12";
 static const char normbordercolor[] = "#1f222d";
@@ -14,7 +17,7 @@ static const char selfgcolor[]      = "#9ec1d8";
 static unsigned int baralpha        = 0xdf;
 static unsigned int borderalpha     = 0xdf;
 static const unsigned int gappx     = 20;       /* gap pixel between windows */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -27,17 +30,18 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      	 	instance    title       tags mask     	isfloating  monitor */
-	{ "feh",		NULL,	    NULL,	0,		1,	    -1 },
-	{ "Gimp",     	 	NULL,       NULL,       1 << 7,      	0,          -1 },
-	{ "Chromium",  	 	NULL,       NULL,      	1 << 2,       	0,          -1 },
-	{ "Evince", 	 	NULL,	    NULL,	1 << 6,		0,	    -1 },
-	{ "discord",	 	NULL,	    NULL,	1 << 4,		0,	    -1 },
-	{ "Spotify",	 	NULL,	    NULL,	1 << 3,		0,	    -1 },
-	{ "VirtualBox Manager", NULL,	    NULL,	1 << 8,		0,	    -1 },
-	{ NULL,			NULL,    "LibreOffice",	1 << 7,		0,	    -1 },
-	{ "Surf",		NULL,	    NULL,	1 << 1,		0,	    -1 },
-	{ NULL,			NULL,	 "ranger",	0,		1,	    -1 },
+	/* class      	 		      instance     title       tags mask    isfloating monitor */
+	{ NULL,					NULL,	 "/bin/sh",	0,		1,	    -1 },
+	{ NULL,					NULL,	 "ranger",	0,		1,	    -1 },
+	{ "feh",				NULL,	    NULL,	0,		1,	    -1 },
+	{ "Surf",				NULL,	    NULL,	1 << 1,		0,	    -1 },
+	{ "Chromium",  	 			NULL,       NULL,      	1 << 2,       	0,          -1 },
+	{ "Google Play Music Desktop Player",	NULL,	    NULL,	1 << 3,		1,	    -1 },
+	{ "discord",	 			NULL,	    NULL,	1 << 4,		0,	    -1 },
+	{ "Evince", 	 			NULL,	    NULL,	1 << 6,		0,	    -1 },
+	{ "Gimp",     	 			NULL,       NULL,       1 << 7,      	0,          -1 },
+	{ NULL,					NULL,    "LibreOffice",	1 << 7,		0,	    -1 },
+	{ "VirtualBox Manager", 		NULL,	    NULL,	1 << 8,		0,	    -1 },
 };
 
 /* layout(s) */
@@ -47,9 +51,9 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ " [] ",      centeredmaster },    /* first entry is default */
-	{ " [] ",      tile },
+	{ " [] ",      tile },    /* first entry is default */
 	{ " [] ",      monocle },
+	{ " [] ",      centeredmaster },
 	{ " [] ",      centeredfloatingmaster },
 	{ " [] ",      NULL },    /* no layout function means floating behavior */
 };
@@ -67,11 +71,16 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", "#4e8cb7", "-sf", selfgcolor, "-h", "30", "-b", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
 static const char *surfcmd[]  = { "surf", NULL };
 static const char *webcmd[]  = { "chromium", NULL };
+static const char *musiccmd[]  = { "gpmdp", NULL };
+static const char *suspendcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/suspend.sh", NULL };
+static const char *shutdowncmd[] = { "/bin/sh", "-c", "$HOME/.scripts/shutdown.sh", NULL };
+static const char *restartcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/restart.sh", NULL };
+static const char *lockcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/lock.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -80,6 +89,7 @@ static Key keys[] = {
 	{ MODKEY,             		XK_f, 	   spawn,          {.v = rangercmd } },
 	{ MODKEY,             		XK_s,      spawn,          {.v = surfcmd } },
 	{ MODKEY,             		XK_w,      spawn,          {.v = webcmd } },
+	{ MODKEY,             		XK_m,      spawn,          {.v = musiccmd } },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -90,9 +100,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_p,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
@@ -112,7 +122,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_Home,   quit,           {0} },
+	{ MODKEY|ShiftMask,		XK_Delete, spawn,	   {.v = suspendcmd } },
+	{ MODKEY|ShiftMask,		XK_Insert, spawn,	   {.v = restartcmd } },
+	{ MODKEY|ShiftMask,		XK_End,	   spawn,	   {.v = shutdowncmd } },
+	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   {.v = lockcmd } },
 };
 
 /* button definitions */

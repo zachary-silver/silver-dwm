@@ -8,14 +8,19 @@ url="https://github.com/ZmanSilver/silver-dwm"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'dmenu' 'ttf-font-awesome')
-optdepends=('st: default terminal dwm uses')
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'ttf-font-awesome')
+optdepends=('st: terminal emulator'
+	    'silver-st: customized terminal emulator'
+	    'dmenu: application launcher'
+	    'silver-dmenu: customized application launcher')
+provides=($pkgname)
+conflicts=($pkgname 'dwm')
 install=dwm.install
-source=(https://www.dropbox.com/s/5cu3zf60q27l05u/silver-dwm.tar.gz
+source=(https://www.dropbox.com/s/48iuaj9jdzd97eb/silver-dwm.tar.gz
 	config.h
 	dwm.desktop)
-md5sums=('3414b14b64557b2b7d786244e89425d1'
-         'b2a40545589193ebb1c371169d10d42e'
+md5sums=('933b78e8ed497cdc39956ac3b20240b4'
+         'e69c18bb1d8219f186314d8de95f80e1'
          '7f873efd596b8b30e2cdc09583209874')
 
 prepare() {
