@@ -81,9 +81,6 @@ static const char *suspendcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/suspend.sh"
 static const char *shutdowncmd[] = { "/bin/sh", "-c", "$HOME/.scripts/shutdown.sh", NULL };
 static const char *restartcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/restart.sh", NULL };
 static const char *lockcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/lock.sh", NULL };
-static const char *incvolcmd[] = { "/bin/sh", "-c", "pactl", "set-sink-mute", "0", "false", ";", "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *decvolcmd[] = { "/bin/sh", "-c", "pactl", "set-sink-mute", "0", "false", ";", "pactl", "set-sink-volume", "0", "-5%", NULL };
-static const char *togmutecmd[] = { "/bin/sh", "-c", "pactl", "set-sink-mute", "0", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        	function        argument */
@@ -130,9 +127,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_Insert, 	spawn,	   	{.v = restartcmd } },
 	{ MODKEY|ShiftMask,		XK_End,	   	spawn,	   	{.v = shutdowncmd } },
 	{ MODKEY|ShiftMask,		XK_x,	   	spawn,	   	{.v = lockcmd } },
-	{ False,          		0x1008ff13, 	spawn,          {.v = incvolcmd } },
-	{ False,          		0x1008ff11, 	spawn,          {.v = decvolcmd } },
-	{ False,          		0x1008ff12,	spawn,          {.v = togmutecmd } },
 };
 
 /* button definitions */
