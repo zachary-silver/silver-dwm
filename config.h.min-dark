@@ -8,12 +8,12 @@ static const char *fonts[] = {
 	"Hermit-Regular:size=12"
 };
 static const char dmenufont[]       = "Hermit-Regular:size=12";
-static const char normbordercolor[] = "#262727";
-static const char normbgcolor[]     = "#262727";
-static const char normfgcolor[]     = "#c5dbeb";
-static const char selbordercolor[]  = "#c5dbeb";
-static const char selbgcolor[]      = "#3a3c3c";
-static const char selfgcolor[]      = "#c5dbeb";
+static const char normbordercolor[] = "#232731";
+static const char normbgcolor[]     = "#232731";
+static const char normfgcolor[]     = "#a7c3d9";
+static const char selbordercolor[]  = "#a7c3d9";
+static const char selbgcolor[]      = "#2b2f3a";
+static const char selfgcolor[]      = "#a7c3d9";
 static unsigned int baralpha        = 0xff;
 static unsigned int borderalpha     = 0xff;
 static const unsigned int gappx     = 20;       /* gap pixel between windows */
@@ -23,7 +23,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "main", "alt", "web", "docs", "edit", "music", "social", "games", "misc" };
+static const char *tags[] = { "  ", "  ", " 龜 ", "  ", "  ", "  ", "  ", "  ", "  " };
 
 static const Rule rules[] = {
 	/* xprop(1):
