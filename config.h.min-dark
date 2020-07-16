@@ -5,9 +5,9 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"Hermit-Regular:size=12"
+	"Hermit:size=12:style=bold"
 };
-static const char dmenufont[]       = "Hermit-Regular:size=12";
+static const char dmenufont[]       = "Hermit:size=12:style=bold";
 static const char normbordercolor[] = "#232731";
 static const char normbgcolor[]     = "#232731";
 static const char normfgcolor[]     = "#a7c3d9";
