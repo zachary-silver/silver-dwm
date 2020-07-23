@@ -5,14 +5,14 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"Hermit:size=12:style=bold"
+	"Hermit:size=11:style=bold"
 };
-static const char dmenufont[]       = "Hermit:size=12:style=bold";
+static const char dmenufont[]       = "Hermit:size=11:style=bold";
 static const char normbordercolor[] = "#232731";
 static const char normbgcolor[]     = "#232731";
 static const char normfgcolor[]     = "#a7c3d9";
 static const char selbordercolor[]  = "#a7c3d9";
-static const char selbgcolor[]      = "#313745";
+static const char selbgcolor[]      = "#232731";
 static const char selfgcolor[]      = "#a7c3d9";
 static unsigned int baralpha        = 0xff;
 static unsigned int borderalpha     = 0xff;
@@ -60,7 +60,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
