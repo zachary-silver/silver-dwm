@@ -4,7 +4,7 @@ A customized clone of dwm by suckless. This version of dwm is patched with alpha
 
 ## Screen
 
-![Screenshot](https://github.com/ZmanSilver/silver-st/blob/master/screen.png)
+![Screenshot](screen.png)
 
 ## Dependencies
 
