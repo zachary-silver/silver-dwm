@@ -8,7 +8,7 @@ diff -up dwm-a/dwm.c dwm-b/dwm.c
 -			drw_rect(drw, x + boxs, boxs, boxw, boxw,
 -				m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
 -				urg & 1 << i);
-+			drw_rect(drw, x + boxw, 0, w - ( 2 * boxw + 1), boxw, 1, urg & 1 << i);
++			drw_rect(drw, x + boxw, 0, w - (2 * boxw + 1), boxw / 2, 1, urg & 1 << i);
  		x += w;
  	}
  	w = blw = TEXTW(m->ltsymbol);
