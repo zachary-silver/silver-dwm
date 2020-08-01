@@ -7,12 +7,12 @@ static const unsigned int gappih    = 30;       /* horiz inner gap between windo
 static const unsigned int gappiv    = 30;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 23;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 28;       /* vert outer gap between windows and screen edge */
-static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
+static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 25;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const int vertpad            = 0;       /* vertical padding of bar */
-static const int sidepad            = 0;       /* horizontal padding of bar */
+static const int user_bh            = 0;       	/* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int vertpad            = 0;       	/* vertical padding of bar */
+static const int sidepad            = 0;       	/* horizontal padding of bar */
 static const char *fonts[]          = { "Hermit:size=11:style=bold" };
 static const char dmenufont[]       = "Hermit:size=11:style=bold";
 static const char col_navy[]        = "#232731";
@@ -60,7 +60,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.485; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
