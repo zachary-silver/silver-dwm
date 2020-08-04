@@ -52,7 +52,7 @@ static const Rule rules[] = {
 	{ "Evince", 	 			NULL,	    	NULL,			1 << 3,		0,	    -1 },
 	{ NULL,					NULL,    	"LibreOffice",		1 << 4,		0,	    -1 },
 	{ "Gimp",     	 			NULL,       	NULL,       		1 << 4,      	0,          -1 },
-	{ "Google Play Music Desktop Player",	NULL,	    	NULL,			1 << 5,		1,	    -1 },
+	{ "spotify",				NULL,	    	NULL,			1 << 5,		0,	    -1 },
 	{ "discord",	 			NULL,	    	NULL,			1 << 6,		0,	    -1 },
 	{ "VirtualBox Manager", 		NULL,	    	NULL,			1 << 8,		0,	    -1 },
 };
@@ -87,7 +87,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *fileexplorecmd[]  = { "st", "-e", "ranger", NULL };
 static const char *socialcmd[]  = { "discord", NULL };
 static const char *webcmd[]  = { "firefox", NULL };
-static const char *musiccmd[]  = { "gpmdp", NULL };
+static const char *musiccmd[]  = { "/bin/sh", "-c", "$HOME/.scripts/spotify.sh", NULL };
 static const char *suspendcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/suspend.sh", NULL };
 static const char *shutdowncmd[] = { "/bin/sh", "-c", "$HOME/.scripts/shutdown.sh", NULL };
 static const char *restartcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/restart.sh", NULL };
