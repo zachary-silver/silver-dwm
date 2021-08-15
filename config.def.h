@@ -14,8 +14,8 @@ static const int vertpad            = 8;       	/* vertical padding of bar */
 static const int sidepad            = 23;       /* horizontal padding of bar */
 static const char *fonts[]          = { "Hermit:size=11:style=bold" };
 static const char dmenufont[]       = "Hermit:size=11:style=bold";
-static const char col_text[] 	    = "#c9c9c9";
-static const char col_text_bright[] = "#f0f0f0";
+static const char col_text[] 	    = "#bdbdbd";
+static const char col_text_bright[] = "#e8e8e8";
 static const char col_navy[]        = "#232731";
 static const char col_ice[]         = "#a7c3d9";
 static const char col_blue[]        = "#4e8cb7";
