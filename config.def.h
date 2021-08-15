@@ -1,33 +1,35 @@
 /* See LICENSE file for copyright and license details. */
-
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int snap      = 20;       /* snap pixel */
-static const unsigned int gappih    = 30;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 30;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 23;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 28;       /* vert outer gap between windows and screen edge */
+static const unsigned int snap      = 16;       /* snap pixel */
+static const unsigned int gappih    = 26;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 26;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 19;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 24;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 28;       	/* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const int vertpad            = 12;       	/* vertical padding of bar */
-static const int sidepad            = 27;       	/* horizontal padding of bar */
+static const int user_bh            = 24;      	/* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int vertpad            = 8;       	/* vertical padding of bar */
+static const int sidepad            = 23;       /* horizontal padding of bar */
 static const char *fonts[]          = { "Hermit:size=11:style=bold" };
 static const char dmenufont[]       = "Hermit:size=11:style=bold";
+static const char col_text[] 	    = "#c9c9c9";
+static const char col_text_bright[] = "#f0f0f0";
 static const char col_navy[]        = "#232731";
 static const char col_ice[]         = "#a7c3d9";
 static const char col_blue[]        = "#4e8cb7";
+static const char col_light_blue[]  = "#68a7d4";
 static const char col_orange[]      = "#f28a4a";
 static const char *colors[][3]      = {
-	/*               	    fg         bg         border   */
-	[SchemeNorm] 		= { col_ice,   col_navy,  col_navy },
-	[SchemeSel]  		= { col_ice,   col_navy,  col_navy },
-	[SchemeStatus]  	= { col_ice,   col_navy,  col_navy }, // Statusbar right
-	[SchemeTagsSel]  	= { col_blue,  col_navy,  col_navy }, // Tagbar left selected
-    	[SchemeTagsNorm]  	= { col_ice,   col_navy,  col_orange }, // Tagbar left unselected
-    	[SchemeInfoSel]  	= { col_ice,   col_navy,  col_navy }, // infobar middle selected
-    	[SchemeInfoNorm]  	= { col_ice,   col_navy,  col_navy }, // infobar middle unselected
+	/*               	    fg         	      bg         border   */
+	[SchemeNorm] 		= { col_text_bright,  col_navy,  col_navy },
+	[SchemeSel]  		= { col_text_bright,  col_navy,  col_navy },
+	[SchemeStatus]  	= { col_text_bright,  col_navy,  col_navy }, // Statusbar right
+	[SchemeTagsSel]  	= { col_light_blue,   col_navy,  col_navy }, // Tagbar left selected
+    	[SchemeTagsNorm]  	= { col_text_bright,  col_navy,  col_orange }, // Tagbar left unselected
+    	[SchemeInfoSel]  	= { col_text_bright,  col_navy,  col_navy }, // infobar middle selected
+    	[SchemeInfoNorm]  	= { col_text_bright,  col_navy,  col_navy }, // infobar middle unselected
 };
 
 /* staticstatus */
