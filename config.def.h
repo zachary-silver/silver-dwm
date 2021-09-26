@@ -13,7 +13,7 @@ static const int user_bh            = 24;      	/* 0 means that dwm will calcula
 static const int vertpad            = 8;       	/* vertical padding of bar */
 static const int sidepad            = 23;       /* horizontal padding of bar */
 static const char *fonts[]          = { "Hermit:size=11:style=bold" };
-static const char dmenufont[]       = "Hermit:size=11:style=bold";
+static const char dmenufont[]       = "Hermit:size=12:style=bold";
 static const char col_text[] 	    = "#bdbdbd";
 static const char col_text_bright[] = "#e8e8e8";
 static const char col_navy[]        = "#232731";
@@ -36,7 +36,7 @@ static const char *colors[][3]      = {
 static const int statmonval = 0;
 
 /* tagging */
-static const char *tags[] = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " };
+static const char *tags[] = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -51,8 +51,8 @@ static const Rule rules[] = {
 	{ "feh",				NULL,	    	NULL,			0,		1,	    -1 },
 	{ "Surf",				NULL,	    	NULL,			1 << 2,		0,	    -1 },
 	{ "firefox",  	 			NULL,       	NULL,      		1 << 2,       	0,          -1 },
-	{ "spotify",				NULL,	    	NULL,			1 << 3,		0,	    -1 },
-	{ "discord",	 			NULL,	    	NULL,			1 << 4,		0,	    -1 },
+	{ "discord",	 			NULL,	    	NULL,			1 << 3,		0,	    -1 },
+	{ "spotify",				NULL,	    	NULL,			1 << 4,		0,	    -1 },
 	{ "Evince", 	 			NULL,	    	NULL,			1 << 5,		0,	    -1 },
 	{ NULL,					NULL,    	"LibreOffice",		1 << 6,		0,	    -1 },
 	{ "Gimp",     	 			NULL,       	NULL,       		1 << 6,      	0,          -1 },
@@ -72,7 +72,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -84,7 +84,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_navy, "-nf", col_ice, "-sb", col_blue, "-sf", col_navy, topbar ? NULL : "-b", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_navy, "-nf", col_text_bright, "-sb", col_light_blue, "-sf", col_navy, topbar ? NULL : "-b", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *fileexplorecmd[]  = { "st", "-e", "ranger", NULL };
 static const char *socialcmd[]  = { "discord", NULL };
