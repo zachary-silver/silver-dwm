@@ -89,11 +89,11 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *fileexplorecmd[]  = { "st", "-e", "ranger", NULL };
 static const char *socialcmd[]  = { "discord", NULL };
 static const char *webcmd[]  = { "firefox", NULL };
-static const char *musiccmd[]  = { "/bin/sh", "-c", "$HOME/.scripts/spotify.sh", NULL };
-static const char *suspendcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/suspend.sh", NULL };
-static const char *shutdowncmd[] = { "/bin/sh", "-c", "$HOME/.scripts/shutdown.sh", NULL };
-static const char *restartcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/restart.sh", NULL };
-static const char *lockcmd[] = { "/bin/sh", "-c", "$HOME/.scripts/lock.sh", NULL };
+static const char *musiccmd[]  = { "/bin/sh", "-c", "$HOME/scripts/spotify.sh", NULL };
+static const char *suspendcmd[] = { "/bin/sh", "-c", "$HOME/scripts/suspend.sh", NULL };
+static const char *shutdowncmd[] = { "/bin/sh", "-c", "$HOME/scripts/shutdown.sh", NULL };
+static const char *restartcmd[] = { "/bin/sh", "-c", "$HOME/scripts/restart.sh", NULL };
+static const char *lockcmd[] = { "/bin/sh", "-c", "$HOME/scripts/lock.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
