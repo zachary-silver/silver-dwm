@@ -94,10 +94,11 @@ static const char *suspendcmd[] = { "/bin/sh", "-c", "$HOME/scripts/suspend.sh",
 static const char *shutdowncmd[] = { "/bin/sh", "-c", "$HOME/scripts/shutdown.sh", NULL };
 static const char *restartcmd[] = { "/bin/sh", "-c", "$HOME/scripts/restart.sh", NULL };
 static const char *lockcmd[] = { "/bin/sh", "-c", "$HOME/scripts/lock.sh", NULL };
+static const char *logoutcmd[] = { "/bin/sh", "-c", "$HOME/scripts/logout.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_Home,   quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_Home,   spawn,          {.v = logoutcmd } },
 	{ MODKEY|ShiftMask,		XK_Delete, spawn,	   {.v = suspendcmd } },
 	{ MODKEY|ShiftMask,		XK_Insert, spawn,	   {.v = restartcmd } },
 	{ MODKEY|ShiftMask,		XK_End,	   spawn,	   {.v = shutdowncmd } },
