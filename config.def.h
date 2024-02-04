@@ -1,17 +1,17 @@
 /* See LICENSE file for copyright and license details. */
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int snap      = 16;       /* snap pixel */
-static const unsigned int gappih    = 26;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 26;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 19;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 24;       /* vert outer gap between windows and screen edge */
+static const unsigned int snap      = 8;       /* snap pixel */
+static const unsigned int gappih    = 16;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 16;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 16;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 16;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 24;      	/* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const int vertpad            = 8;       	/* vertical padding of bar */
-static const int sidepad            = 23;       /* horizontal padding of bar */
+static const int user_bh            = 28;      	/* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int vertpad            = 12;       	/* vertical padding of bar */
+static const int sidepad            = 16;       /* horizontal padding of bar */
 static const char *fonts[]          = { "Hermit:size=11:style=bold" };
 static const char dmenufont[]       = "Hermit:size=12:style=bold";
 static const char col_text[] 	    = "#bdbdbd";
@@ -27,9 +27,9 @@ static const char *colors[][3]      = {
 	[SchemeSel]  		= { col_text_bright,  col_navy,  col_navy },
 	[SchemeStatus]  	= { col_text_bright,  col_navy,  col_navy }, // Statusbar right
 	[SchemeTagsSel]  	= { col_light_blue,   col_navy,  col_navy }, // Tagbar left selected
-    	[SchemeTagsNorm]  	= { col_text_bright,  col_navy,  col_orange }, // Tagbar left unselected
-    	[SchemeInfoSel]  	= { col_text_bright,  col_navy,  col_navy }, // infobar middle selected
-    	[SchemeInfoNorm]  	= { col_text_bright,  col_navy,  col_navy }, // infobar middle unselected
+    [SchemeTagsNorm]  	= { col_text_bright,  col_navy,  col_orange }, // Tagbar left unselected
+    [SchemeInfoSel]  	= { col_text_bright,  col_navy,  col_navy }, // infobar middle selected
+    [SchemeInfoNorm]  	= { col_text_bright,  col_navy,  col_navy }, // infobar middle unselected
 };
 
 /* staticstatus */
@@ -72,7 +72,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
